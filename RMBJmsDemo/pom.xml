@@ -58,9 +58,6 @@
     <profile>
       <id>Docker</id>
       <build />
-      <modules>
-        <module>RMBJmsDemoDocker</module>
-      </modules>
     </profile>
     <profile>
       <id>Kubernetes</id>
@@ -71,9 +68,6 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <build />
-      <modules>
-        <module>RMBJmsDemoDocker</module>
-      </modules>
     </profile>
   </profiles>
 </project>
