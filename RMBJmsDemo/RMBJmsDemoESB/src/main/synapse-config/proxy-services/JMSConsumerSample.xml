@@ -1,27 +1,23 @@
-<proxy xmlns="http://ws.apache.org/ns/synapse"
-           name="JMSConsumerSample"
-           transports="jms"
-           statistics="disable"
-           trace="disable"
-           startOnLoad="true">
-       <target>
-          <inSequence>
-            <log level="custom"> 
-                <property name="AcceptHeader" value="other" /> 
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="JMSConsumerSample" startOnLoad="true" transports="jms" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <log level="custom">
+                <property name="JMSConsumerSample Message" value="##### JMS Message Consumed #####"/>
+                <property expression="json-eval($)" name="Payload"/>
             </log>
-			<drop/> 
-          </inSequence>
-          <outSequence>
-          </outSequence>
-       </target>
-       <parameter name="transport.jms.ContentType">
-          <rules>
-             <jmsProperty>contentType</jmsProperty>
-             <default>text/plain</default>
-          </rules>
-       </parameter>
-       <parameter name="transport.jms.ConnectionFactory">myQueueListener</parameter>
-       <parameter name="transport.jms.DestinationType">queue</parameter>
-       <parameter name="transport.jms.Destination">q.RMB.Demo.1</parameter>
-       <description/>
+            <drop/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="transport.jms.DestinationType">queue</parameter>
+    <parameter name="transport.jms.Destination">q.RMB.Demo.1</parameter>
+    <parameter name="transport.jms.ContentType">
+        <rules>
+            <jmsProperty>contentType</jmsProperty>
+            <default>application/json</default>
+        </rules>
+    </parameter>
+    <parameter name="transport.jms.ConnectionFactory">myQueueListener</parameter>
 </proxy>
