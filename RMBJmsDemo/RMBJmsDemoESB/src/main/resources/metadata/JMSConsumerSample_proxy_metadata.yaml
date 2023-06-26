@@ -1,0 +1,10 @@
+---
+key: "JMSConsumerSample_proxy-1.0.0"
+name : "JMSConsumerSample"
+displayName : "JMSConsumerSample"
+description: "Sample Proxy Service"
+version: "1.0.0"
+serviceUrl: "https://{MI_HOST}:{MI_PORT}/services/JMSConsumerSample"
+definitionType: "WSDL1"
+securityType: "BASIC"
+mutualSSLEnabled: false

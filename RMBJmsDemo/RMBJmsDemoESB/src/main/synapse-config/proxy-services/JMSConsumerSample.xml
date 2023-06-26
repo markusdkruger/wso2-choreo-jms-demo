@@ -1,0 +1,27 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+           name="JMSConsumerSample"
+           transports="jms"
+           statistics="disable"
+           trace="disable"
+           startOnLoad="true">
+       <target>
+          <inSequence>
+            <log level="custom"> 
+                <property name="AcceptHeader" value="other" /> 
+            </log>
+			<drop/> 
+          </inSequence>
+          <outSequence>
+          </outSequence>
+       </target>
+       <parameter name="transport.jms.ContentType">
+          <rules>
+             <jmsProperty>contentType</jmsProperty>
+             <default>text/plain</default>
+          </rules>
+       </parameter>
+       <parameter name="transport.jms.ConnectionFactory">myQueueListener</parameter>
+       <parameter name="transport.jms.DestinationType">queue</parameter>
+       <parameter name="transport.jms.Destination">q.RMB.Demo.1</parameter>
+       <description/>
+</proxy>
