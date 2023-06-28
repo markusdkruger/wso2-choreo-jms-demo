@@ -18,6 +18,7 @@ password = "wso2carbon"
 alias = "symmetric.key.value"
 algorithm = "AES"
 
+
 [[transport.jms.listener]]
 name = "myTopicListener"
 parameter.initial_naming_factory = "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
